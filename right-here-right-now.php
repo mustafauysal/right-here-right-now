@@ -36,7 +36,6 @@ function remove_dashboard_right_now() {
  * @link http://www.chartjs.org/ Easy, object oriented client side graphs for designers and developers
  */
 function charts_js() {
-    wp_enqueue_media();
     wp_register_script('chartjs', plugins_url('/js/Chart.min.js', __FILE__));
     wp_enqueue_script('chartjs');
 }
