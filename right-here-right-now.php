@@ -1,0 +1,172 @@
+<?php
+/*
+Plugin Name: Right Here Right Now
+Plugin URI: http://wordpress.org/extend/plugins/right-here-right-now
+Description: Replace wordpress right now widget with right-here-right-now plugin.
+Version: 1.0-alpha
+Author: Mustafa UYSAL
+Author URI: http://uysalmustafa.com
+License:GPLv2 or later
+Network: True
+*/
+
+// if you want to use right now widget set it false
+$remove_right_now = true;
+
+/** Hooks **/
+add_action('admin_enqueue_scripts', 'charts_js');
+add_action('admin_head', 'legacy_chart');
+add_action('wp_dashboard_setup', 'right_here_right_now_dashboard_widget');
+add_action('in_admin_footer', 'draw_chart');
+
+
+
+
+if ($remove_right_now) {
+    add_action('wp_dashboard_setup', 'remove_dashboard_right_now');
+}
+
+function remove_dashboard_right_now() {
+    global $wp_meta_boxes;
+    unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now']);
+}
+
+/**
+ * Load Chart js
+ * @link http://www.chartjs.org/ Easy, object oriented client side graphs for designers and developers
+ */
+function charts_js() {
+    wp_enqueue_media();
+    wp_register_script('chartjs', plugins_url('/js/Chart.min.js', __FILE__));
+    wp_enqueue_script('chartjs');
+}
+
+/**
+ * Js hack for older browsers
+ */
+function legacy_chart() {
+    echo '<!--[if lte IE 8]> <script src="' . plugins_url("/js/excanvas.js", __FILE__) . '"></script><![endif]-->';
+}
+
+    
+function right_here_right_now_dashboard_widget() {
+    /**
+     * Check user capability,
+     */
+    if (current_user_can('edit_pages')) {
+        wp_add_dashboard_widget('right_here_right_now', __('Right Now'), 'right_here_right_now');
+    }
+}
+
+function right_here_right_now() {
+    echo '<table><tr><td><div id="post-stats"  >
+	<div id="chartbg" style="border-radius:100%;background-color:#242628;height:110px;width:110px;position:absolute;margin-left:62px;margin-top:62px;">
+	<br/>
+	<span class="item"  style="padding-left:20px;color:#9fbb58;font-size:18px;line-height:22px;">' . wp_count_posts()->publish . '</span> <span style="color:white;vertical-align:text-bottom;font-size:13px;">' . __(Published) . '</span><br/>
+	<span class="item"  style="padding-left:20px;color:#F9E15D;font-size:18px;line-height:22px;">' . wp_count_posts()->draft . '</span> <span style="color:white;vertical-align:text-bottom;font-size:13px;">' . __(Draft) . '</span><br/>
+	<span class="item"  style="padding-left:20px;color:#e25440;font-size:18px;line-height:22px;">' . wp_count_posts()->trash . '</span> <span style="color:white;vertical-align:text-bottom;font-size:13px;">' . __(Trash) . '</span>
+	</div>
+	<canvas id="canvas-post" height="234"  width="234"></canvas><br/>
+	</div></td>';
+
+
+    echo '<td><div id="comment-stats" >
+	<div id="chartbg" style="border-radius:100%;background-color:#242628;height:110px;width:110px;position:absolute;margin-left:62px;margin-top:62px;">
+	<br/>
+	<span class="item"  style="padding-left:20px;color:#9fbb58;font-size:18px;line-height:22px;">' . wp_count_comments()->approved . '</span> <span style="color:white;vertical-align:text-bottom;font-size:13px;">' . __(Approved) . '</span><br/>
+	<span class="item"  style="padding-left:20px;color:#f9e15d;font-size:18px;line-height:22px;">' . wp_count_comments()->moderated . '</span> <span style="color:white;vertical-align:text-bottom;font-size:13px;">' . __(Pending) . '</span><br/>
+	<span class="item"  style="padding-left:20px;color:#e25440;font-size:18px;line-height:22px;">' . wp_count_comments()->spam . '</span> <span style="color:white;vertical-align:text-bottom;font-size:13px;">' . __(Spam) . '</span>
+	</div>
+	<canvas id="canvas-comment" height="234"  width="234" ></canvas>
+	</div></td></tr></table>';
+}
+
+
+
+function draw_chart() {
+    ?>
+        <script type="text/javascript">
+            
+        var options  = {
+            //Boolean - Whether we should show a stroke on each segment
+            segmentShowStroke : true,
+                
+            //String - The colour of each segment stroke
+            segmentStrokeColor : "#fff",
+                
+            //Number - The width of each segment stroke
+            segmentStrokeWidth : 2,
+                
+            //The percentage of the chart that we cut out of the middle.
+            percentageInnerCutout : 50,
+                
+            //Boolean - Whether we should animate the chart	
+            animation : true,
+                
+            //Number - Amount of animation steps
+            animationSteps : 100,
+                
+            //String - Animation easing effect
+            animationEasing : "easeOutBounce",
+                
+            //Boolean - Whether we animate the rotation of the Doughnut
+            animateRotate : true,
+                
+            //Boolean - Whether we animate scaling the Doughnut from the centre
+            animateScale : false,
+                
+            //Function - Will fire on animation completion.
+            onAnimationComplete : null
+        }
+    	
+        var postData = [
+            {
+                value: <?php echo wp_count_posts()->publish; ?>,
+                color:"#9EC149"
+            },
+            {
+                value : <?php echo wp_count_posts()->draft; ?>,
+                color : "#F9E15D"
+            },
+            {
+                value : <?php echo wp_count_posts()->trash; ?>,
+                color : "#EB5700"
+            },
+                
+                
+        ];
+            
+            
+            
+        var contentChart = new Chart(document.getElementById("canvas-post").getContext("2d")).Doughnut(postData,options).ctx.fillRect(0,0,150,75);
+    	
+    	
+    </script>
+    <script type="text/javascript">
+                
+        var commentData = [
+            {
+                value: <?php echo wp_count_comments()->approved; ?>,
+                color:"#9EC149"
+            },
+            {
+                value : <?php echo wp_count_comments()->moderated; ?>,
+                color : "#F9E15D"
+            },
+            {
+                value : <?php echo wp_count_comments()->spam; ?>,
+                color : "#EB5700"
+            },
+                    
+                    
+        ];
+                
+        var discussionChart = new Chart(document.getElementById("canvas-comment").getContext("2d")).Doughnut(commentData,options);
+                
+                
+    </script>
+
+<?php
+ 
+}
+	
