@@ -59,22 +59,22 @@ function rhrn_dashboard_widget() {
 
 function right_here_right_now() {
     echo '<table><tr><td><div id="post-stats"  >
-	<div id="chartbg" style="border-radius:100%;background-color:#242628;height:110px;width:110px;position:absolute;margin-left:62px;margin-top:62px;">
-	<br/>
-	<span class="item"  style="padding-left:20px;color:#9fbb58;font-size:18px;line-height:22px;">' . wp_count_posts()->publish . '</span> <span style="color:white;vertical-align:text-bottom;font-size:13px;">' . __(Published) . '</span><br/>
-	<span class="item"  style="padding-left:20px;color:#F9E15D;font-size:18px;line-height:22px;">' . wp_count_posts()->draft . '</span> <span style="color:white;vertical-align:text-bottom;font-size:13px;">' . __(Draft) . '</span><br/>
-	<span class="item"  style="padding-left:20px;color:#e25440;font-size:18px;line-height:22px;">' . wp_count_posts()->trash . '</span> <span style="color:white;vertical-align:text-bottom;font-size:13px;">' . __(Trash) . '</span>
+	<div id="chartbg" style="border-radius:100%;background-color:#242628;height:140px;width:140px;position:absolute;margin-left:45px;margin-top:45px;border:#fff 3px solid;text-align:center;">
+	<br/><br/>
+	<span class="item"  style="color:#9fbb58;font-size:18px;line-height:22px;">' . wp_count_posts()->publish . '</span> <span style="color:white;vertical-align:text-bottom;font-size:13px;">' . __(Published) . '</span><br/>
+	<span class="item"  style="color:#F9E15D;font-size:18px;line-height:22px;">' . wp_count_posts()->draft . '</span> <span style="color:white;vertical-align:text-bottom;font-size:13px;">' . __(Draft) . '</span><br/>
+	<span class="item"  style="color:#e25440;font-size:18px;line-height:22px;">' . wp_count_posts()->trash . '</span> <span style="color:white;vertical-align:text-bottom;font-size:13px;">' . __(Trash) . '</span>
 	</div>
 	<canvas id="canvas-post" height="234"  width="234"></canvas><br/>
 	</div></td>';
 
 
     echo '<td><div id="comment-stats" >
-	<div id="chartbg" style="border-radius:100%;background-color:#242628;height:110px;width:110px;position:absolute;margin-left:62px;margin-top:62px;">
-	<br/>
-	<span class="item"  style="padding-left:20px;color:#9fbb58;font-size:18px;line-height:22px;">' . wp_count_comments()->approved . '</span> <span style="color:white;vertical-align:text-bottom;font-size:13px;">' . __(Approved) . '</span><br/>
-	<span class="item"  style="padding-left:20px;color:#f9e15d;font-size:18px;line-height:22px;">' . wp_count_comments()->moderated . '</span> <span style="color:white;vertical-align:text-bottom;font-size:13px;">' . __(Pending) . '</span><br/>
-	<span class="item"  style="padding-left:20px;color:#e25440;font-size:18px;line-height:22px;">' . wp_count_comments()->spam . '</span> <span style="color:white;vertical-align:text-bottom;font-size:13px;">' . __(Spam) . '</span>
+	<div id="chartbg" style="border-radius:100%;background-color:#242628;height:140px;width:140px;position:absolute;margin-left:45px;margin-top:45px;border:#fff 3px solid;text-align:center;">
+	<br/><br/>
+	<span class="item"  style="color:#9fbb58;font-size:18px;line-height:22px;">' . wp_count_comments()->approved . '</span> <span style="color:white;vertical-align:text-bottom;font-size:13px;">' . __(Approved) . '</span><br/>
+	<span class="item"  style="color:#f9e15d;font-size:18px;line-height:22px;">' . wp_count_comments()->moderated . '</span> <span style="color:white;vertical-align:text-bottom;font-size:13px;">' . __(Pending) . '</span><br/>
+	<span class="item"  style="color:#e25440;font-size:18px;line-height:22px;">' . wp_count_comments()->spam . '</span> <span style="color:white;vertical-align:text-bottom;font-size:13px;">' . __(Spam) . '</span>
 	</div>
 	<canvas id="canvas-comment" height="234"  width="234" ></canvas>
 	</div></td></tr></table>';
