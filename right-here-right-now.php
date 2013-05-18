@@ -3,7 +3,7 @@
 Plugin Name: Right Here Right Now
 Plugin URI: http://wordpress.org/extend/plugins/right-here-right-now
 Description: Replace wordpress right now widget with right-here-right-now plugin.
-Version: 1.0-alpha
+Version: 1.0
 Author: Mustafa UYSAL
 Author URI: http://uysalmustafa.com
 License:GPLv2 or later
@@ -14,10 +14,10 @@ Network: True
 $remove_right_now = true;
 
 /** Hooks **/
-add_action('admin_enqueue_scripts', 'charts_js');
-add_action('admin_head', 'legacy_chart');
-add_action('wp_dashboard_setup', 'right_here_right_now_dashboard_widget');
-add_action('in_admin_footer', 'draw_chart');
+add_action('admin_enqueue_scripts', 'rhrn_charts_js');
+add_action('admin_head', 'rhrn_legacy_chart');
+add_action('wp_dashboard_setup', 'rhrn_dashboard_widget');
+add_action('in_admin_footer', 'rhrn_draw_chart');
 
 
 
@@ -26,7 +26,7 @@ if ($remove_right_now) {
     add_action('wp_dashboard_setup', 'remove_dashboard_right_now');
 }
 
-function remove_dashboard_right_now() {
+function rhrn_remove_dashboard_right_now() {
     global $wp_meta_boxes;
     unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now']);
 }
@@ -35,7 +35,7 @@ function remove_dashboard_right_now() {
  * Load Chart js
  * @link http://www.chartjs.org/ Easy, object oriented client side graphs for designers and developers
  */
-function charts_js() {
+function rhrn_charts_js() {
     wp_register_script('chartjs', plugins_url('/js/Chart.min.js', __FILE__));
     wp_enqueue_script('chartjs');
 }
@@ -43,12 +43,12 @@ function charts_js() {
 /**
  * Js hack for older browsers
  */
-function legacy_chart() {
+function rhrn_legacy_chart() {
     echo '<!--[if lte IE 8]> <script src="' . plugins_url("/js/excanvas.js", __FILE__) . '"></script><![endif]-->';
 }
 
     
-function right_here_right_now_dashboard_widget() {
+function rhrn_dashboard_widget() {
     /**
      * Check user capability,
      */
@@ -82,7 +82,7 @@ function right_here_right_now() {
 
 
 
-function draw_chart() {
+function rhrn_draw_chart() {
     ?>
         <script type="text/javascript">
             
