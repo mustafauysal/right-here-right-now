@@ -23,7 +23,7 @@ add_action('in_admin_footer', 'rhrn_draw_chart');
 
 
 if ($remove_right_now) {
-    add_action('wp_dashboard_setup', 'remove_dashboard_right_now');
+    add_action('wp_dashboard_setup', 'rhrn_remove_dashboard_right_now');
 }
 
 function rhrn_remove_dashboard_right_now() {
