@@ -3,7 +3,7 @@ Contributors: m_uysl,LettoBlog
 Tags: dashboard widget,widget,chart,right now,admin widget,statistics
 Requires at least: 3.0
 Tested up to: 3.6
-Stable tag: trunk
+Stable tag: 1.1
 
 Replace wordpress right now widget with "Right Here Right Now" widget. (Inspired by Ghost)
 
@@ -28,4 +28,11 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 	
 == Screenshots ==
 1. screenshot-1.png
+
+== Changelog ==
+= 1.1 = 
+Items linked to pages.
+
+= 1.0 =
+Initial release
 
