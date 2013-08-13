@@ -41,4 +41,3 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 
 ### 1.0 ###
 *Initial release
-
