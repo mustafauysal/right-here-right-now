@@ -2,11 +2,11 @@
 
 [![Build Status](https://travis-ci.org/mustafauysal/right-here-right-now.png?branch=master)](https://travis-ci.org/mustafauysal/right-here-right-now)
 
-Contributors: m_uysl,LettoBlog
-Tags: dashboard widget,widget,chart,right now,admin widget,statistics
-Requires at least: 3.0
-Tested up to: 3.6
-Stable tag: 1.1
+Contributors: m_uysl,LettoBlog  
+Tags: dashboard widget,widget,chart,right now,admin widget,statistics  
+Requires at least: 3.0  
+Tested up to: 3.6  
+Stable tag: 1.1  
 
 Replace wordpress right now widget with "Right Here Right Now" widget. (Inspired by Ghost)
 
