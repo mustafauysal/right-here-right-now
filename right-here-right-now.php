@@ -72,7 +72,7 @@ function right_here_right_now() {
     echo '<td><div id="comment-stats" >
 	<div id="chartbg" style="border-radius:100%;background-color:#242628;height:140px;width:140px;position:absolute;margin-left:45px;margin-top:45px;border:#fff 3px solid;text-align:center;">
 	<br/><br/>
-	<a href="comment_status=approved"><span class="item"  style="color:#9fbb58;font-size:18px;line-height:22px;">' . wp_count_comments()->approved . '</span> <span style="color:white;vertical-align:text-bottom;font-size:13px;">' . __(Approved) . '</span></a><br/>
+	<a href="edit-comments.php?comment_status=approved"><span class="item"  style="color:#9fbb58;font-size:18px;line-height:22px;">' . wp_count_comments()->approved . '</span> <span style="color:white;vertical-align:text-bottom;font-size:13px;">' . __(Approved) . '</span></a><br/>
 	<a href="edit-comments.php?comment_status=moderated"><span class="item"  style="color:#f9e15d;font-size:18px;line-height:22px;">' . wp_count_comments()->moderated . '</span> <span style="color:white;vertical-align:text-bottom;font-size:13px;">' . __(Pending) . '</span></a><br/>
 	<a href="edit-comments.php?comment_status=spam"><span class="item"  style="color:#e25440;font-size:18px;line-height:22px;">' . wp_count_comments()->spam . '</span> <span style="color:white;vertical-align:text-bottom;font-size:13px;">' . __(Spam) . '</span></a>
 	</div>
