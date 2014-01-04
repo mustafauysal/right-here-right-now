@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Right Here Right Now
-Plugin URI: http://wordpress.org/extend/plugins/right-here-right-now
+Plugin URI: http://wordpress.org/plugins/right-here-right-now
 Description: Replace wordpress right now widget with right-here-right-now plugin.
-Version: 1.1
+Version: 1.1.1-beta
 Author: Mustafa UYSAL
 Author URI: http://uysalmustafa.com
 License:GPLv2 or later

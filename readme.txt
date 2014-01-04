@@ -30,9 +30,12 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 1. screenshot-1.png
 
 == Changelog ==
+= 1.1.1 = 
+* Charts size changed for wp 3.8 dashboard widget.
+
 = 1.1 = 
-Items linked to pages.
+* Items linked to pages.
 
 = 1.0 =
-Initial release
+* Initial release
 
