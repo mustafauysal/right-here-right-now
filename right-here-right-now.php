@@ -3,7 +3,7 @@
 Plugin Name: Right Here Right Now
 Plugin URI: http://wordpress.org/plugins/right-here-right-now
 Description: Replace wordpress right now widget with right-here-right-now plugin.
-Version: 1.1.1-beta
+Version: 1.1.1
 Author: Mustafa UYSAL
 Author URI: http://uysalmustafa.com
 License:GPLv2 or later
@@ -61,7 +61,7 @@ function right_here_right_now() {
 	echo '<table><tr><td><div id="post-stats">
 	<div id="chartbg" style="border-radius:100%;background-color:#242628;height:84px;width:84px;position:absolute;margin-left:48px;margin-top:48px;border:#fff 3px solid;text-align:center;">
 	<br/>
-	<a href="edit-pages.php"><span class="item"  style="color:#9fbb58;font-size:12px;line-height:14px;">' . wp_count_posts()->publish . '</span> <span style="color:white;vertical-align:text-bottom;font-size:12px;">' . __( 'Published' ) . '</span></a><br/>
+	<a href="edit.php?post_status=publish"><span class="item"  style="color:#9fbb58;font-size:12px;line-height:14px;">' . wp_count_posts()->publish . '</span> <span style="color:white;vertical-align:text-bottom;font-size:12px;">' . __( 'Published' ) . '</span></a><br/>
 	<a href="edit.php?post_status=draft"><span class="item"  style="color:#f9e15d;font-size:12px;line-height:14px;">' . wp_count_posts()->draft . '</span> <span style="color:white;vertical-align:text-bottom;font-size:12px;">' . __( 'Draft' ) . '</span></a><br/>
 	<a href="edit.php?post_status=trash"><span class="item"  style="color:#e25440;font-size:12px;line-height:14px;">' . wp_count_posts()->trash . '</span> <span style="color:white;vertical-align:text-bottom;font-size:12px;">' . __( 'Trash' ) . '</span></a>
 	</div>
