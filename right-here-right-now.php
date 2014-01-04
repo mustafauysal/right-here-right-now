@@ -58,28 +58,27 @@ function rhrn_dashboard_widget() {
 }
 
 function right_here_right_now() {
-    echo '<table><tr><td><div id="post-stats">
-	<div id="chartbg" style="border-radius:100%;background-color:#242628;height:140px;width:140px;position:absolute;margin-left:45px;margin-top:45px;border:#fff 3px solid;text-align:center;">
-	<br/><br/>
-	<a href="edit-pages.php"><span class="item"  style="color:#9fbb58;font-size:18px;line-height:22px;">' . wp_count_posts()->publish . '</span> <span style="color:white;vertical-align:text-bottom;font-size:13px;">' . __('Published') . '</span></a><br/>
-	<a href="edit.php?post_status=draft"><span class="item"  style="color:#F9E15D;font-size:18px;line-height:22px;">' . wp_count_posts()->draft . '</span> <span style="color:white;vertical-align:text-bottom;font-size:13px;">' . __('Draft') . '</span></a><br/>
-	<a href="edit.php?post_status=trash"><span class="item"  style="color:#e25440;font-size:18px;line-height:22px;">' . wp_count_posts()->trash . '</span> <span style="color:white;vertical-align:text-bottom;font-size:13px;">' . __('Trash') . '</span></a>
+	echo '<table><tr><td><div id="post-stats">
+	<div id="chartbg" style="border-radius:100%;background-color:#242628;height:84px;width:84px;position:absolute;margin-left:48px;margin-top:48px;border:#fff 3px solid;text-align:center;">
+	<br/>
+	<a href="edit-pages.php"><span class="item"  style="color:#9fbb58;font-size:12px;line-height:14px;">' . wp_count_posts()->publish . '</span> <span style="color:white;vertical-align:text-bottom;font-size:12px;">' . __( 'Published' ) . '</span></a><br/>
+	<a href="edit.php?post_status=draft"><span class="item"  style="color:#f9e15d;font-size:12px;line-height:14px;">' . wp_count_posts()->draft . '</span> <span style="color:white;vertical-align:text-bottom;font-size:12px;">' . __( 'Draft' ) . '</span></a><br/>
+	<a href="edit.php?post_status=trash"><span class="item"  style="color:#e25440;font-size:12px;line-height:14px;">' . wp_count_posts()->trash . '</span> <span style="color:white;vertical-align:text-bottom;font-size:12px;">' . __( 'Trash' ) . '</span></a>
 	</div>
-	<canvas id="canvas-post" height="234"  width="234"></canvas><br/>
+	<canvas id="canvas-post" height="185"  width="185"></canvas><br/>
 	</div></td>';
 
 
-    echo '<td><div id="comment-stats" >
-	<div id="chartbg" style="border-radius:100%;background-color:#242628;height:140px;width:140px;position:absolute;margin-left:45px;margin-top:45px;border:#fff 3px solid;text-align:center;">
-	<br/><br/>
-	<a href="edit-comments.php?comment_status=approved"><span class="item"  style="color:#9fbb58;font-size:18px;line-height:22px;">' . wp_count_comments()->approved . '</span> <span style="color:white;vertical-align:text-bottom;font-size:13px;">' . __('Approved') . '</span></a><br/>
-	<a href="edit-comments.php?comment_status=moderated"><span class="item"  style="color:#f9e15d;font-size:18px;line-height:22px;">' . wp_count_comments()->moderated . '</span> <span style="color:white;vertical-align:text-bottom;font-size:13px;">' . __('Pending') . '</span></a><br/>
-	<a href="edit-comments.php?comment_status=spam"><span class="item"  style="color:#e25440;font-size:18px;line-height:22px;">' . wp_count_comments()->spam . '</span> <span style="color:white;vertical-align:text-bottom;font-size:13px;">' . __('Spam') . '</span></a>
+	echo '<td><div id="comment-stats" >
+	<div id="chartbg" style="border-radius:100%;background-color:#242628;height:84px;width:84px;position:absolute;margin-left:48px;margin-top:48px;border:#fff 3px solid;text-align:center;">
+	<br/>
+	<a href="edit-comments.php?comment_status=approved"><span class="item"  style="color:#9fbb58;font-size:12px;line-height:14px;">' . wp_count_comments()->approved . '</span> <span style="color:white;vertical-align:text-bottom;font-size:12px;">' . __( 'Approved' ) . '</span></a><br/>
+	<a href="edit-comments.php?comment_status=moderated"><span class="item"  style="color:#f9e15d;font-size:12px;line-height:14px;">' . wp_count_comments()->moderated . '</span> <span style="color:white;vertical-align:text-bottom;font-size:12px;">' . __( 'Pending' ) . '</span></a><br/>
+	<a href="edit-comments.php?comment_status=spam"><span class="item"  style="color:#e25440;font-size:12px;line-height:14px;">' . wp_count_comments()->spam . '</span> <span style="color:white;vertical-align:text-bottom;font-size:12px;">' . __( 'Spam' ) . '</span></a>
 	</div>
-	<canvas id="canvas-comment" height="234"  width="234" ></canvas>
+	<canvas id="canvas-comment" height="185"  width="185" ></canvas>
 	</div></td></tr></table>';
 }
-
 
 
 function rhrn_draw_chart() {
