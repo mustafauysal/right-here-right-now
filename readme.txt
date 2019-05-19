@@ -2,8 +2,8 @@
 Contributors: m_uysl,LettoBlog 
 Tags: dashboard widget,widget,chart,right now,admin widget,statistics
 Requires at least: 3.0
-Tested up to: 3.8
-Stable tag: 1.1.1
+Tested up to: 5.2
+Stable tag: 1.1.2
 
 Replace wordpress right now widget with "Right Here Right Now" widget. (Inspired by Ghost)
 
@@ -20,7 +20,7 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 == Frequently Asked Questions ==
 
 *   Can I use right now and right here right now widget at the same time?  
-    - Yes, set $remove_right_now variable false in the right-here-right-now.php file
+    - Yes, use `remove_original_right_now_widget`: e.g `add_filter('remove_original_right_now_widget','__return_false');`
 *   I can't see charts, what's happening?
     - This plugin use html5 canvas feature. You need a modern browser buddy.
 *   Is it compatible with multisite?
@@ -30,6 +30,11 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 1. screenshot-1.png
 
 == Changelog ==
+
+= 1.1.2 =
+* tested up to WP 5.2
+* `remove_original_right_now_widget` filter added
+
 = 1.1.1 = 
 * Charts size changed for wp 3.8 dashboard widget.
 
